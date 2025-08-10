@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apiTodo = axios.create({
-    baseURL: "http://127.0.0.1:3005/toDoList/v1",
-    timeout: 5000,
+    baseURL: "https://todo-back-five.vercel.app/toDoList/v1",
+    timeout: 15000,
 });
 
 export const createTask = async (data) => {
@@ -27,9 +27,9 @@ export const getTasks = async () => {
     }
 }
 
-export const getTaskByStatus = async (data) => {
+export const getTaskByStatus = async (status) => {
     try {
-        return await apiTodo.get("/task/getTasksByStatus", data)
+        return await apiTodo.post("/task/getTasksByStatus", { status })
     } catch (err) {
         return {
             error: true,

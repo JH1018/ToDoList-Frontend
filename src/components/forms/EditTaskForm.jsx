@@ -1,18 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../Button'
 import styles from "../../assets/styles/forms.module.css"
 import TaskStatusComboBox from '../comboBoxes/TaskStatusComboBox'
-import useCreateTask from '../../shared/hooks/useCreateTask'
+import useUpdateTask from '../../shared/hooks/useUpdateTask'
 import toast from 'react-hot-toast'
 
-const CreateTaskForm = ({ onClose, onSuccess }) => {
-    const { createTask, loading, error } = useCreateTask();
+const EditTaskForm = ({ task, onClose, onSuccess }) => {
+    const { updateTask, loading, error } = useUpdateTask();
     const [formData, setFormData] = useState({
         title: '',
         description: '',
         dueDate: '',
         status: 'PENDIENTE'
     });
+
+    useEffect(() => {
+        if (task) {
+            setFormData({
+                title: task.title || '',
+                description: task.description || '',
+                dueDate: task.dueDate || '',
+                status: task.status || 'PENDIENTE'
+            });
+        }
+    }, [task]);
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -33,22 +44,22 @@ const CreateTaskForm = ({ onClose, onSuccess }) => {
         <>
             <div className={styles.formContainer}>
                 <div className={styles.headerForms}>
-                    <h2>Crea una Tarea</h2>
+                    <h2>Editar Tarea</h2>
                     <Button onClick={onClose}>X</Button>
                 </div>
                 <div>
                     <form onSubmit={async (e) => {
                             e.preventDefault();
-                            const result = await createTask(formData);
+                            const result = await updateTask(task.uid, formData);
                             if (result) {
-                                toast.success('¡Tarea creada exitosamente!');
+                                toast.success('¡Tarea actualizada exitosamente!');
                                 if (onSuccess) {
                                     onSuccess();
                                 } else {
                                     onClose();
                                 }
                             } else {
-                                toast.error('Error al crear la tarea');
+                                toast.error('Error al actualizar la tarea');
                             }
                         }}>
                         <div className={styles.formBody}>
@@ -91,7 +102,7 @@ const CreateTaskForm = ({ onClose, onSuccess }) => {
                         {error && <p className={styles.errorMessage}>{error}</p>}
                         <div className={styles.formActions}>
                             <Button type="submit" disabled={loading}>
-                                {loading ? 'Creando...' : 'Crear Tarea'}
+                                {loading ? 'Actualizando...' : 'Actualizar Tarea'}
                             </Button>
                             <Button type="button" onClick={onClose} disabled={loading}>
                                 Cancelar
@@ -104,4 +115,4 @@ const CreateTaskForm = ({ onClose, onSuccess }) => {
     )
 }
 
-export default CreateTaskForm
+export default EditTaskForm

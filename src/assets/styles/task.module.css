@@ -56,6 +56,15 @@ input[type="checkbox"]:checked::after {
     align-items: flex-start;
 }
 
+.taskInfoCompleted {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #888;
+}
+
 .taskActions {
     display: flex;
     align-items: center;
