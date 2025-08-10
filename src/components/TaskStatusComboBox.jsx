@@ -1,10 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from "../assets/styles/comboBox.module.css"
 
-const ComboBox = ({ id, onChange}) => {
+const TaskStatusComboBox = ({ id, onChange, value}) => {
 
-    const [status, setStatus]  = useState("");
+    const [status, setStatus]  = useState(value || "");
 
+    useEffect(() => {
+        setStatus(value || "");
+    }, [value]);
+ 
     const handleChange = (e) => {
         setStatus(e.target.value);
         if (onChange) onChange(e.target.value);
@@ -27,4 +31,4 @@ const ComboBox = ({ id, onChange}) => {
     )
 }
 
-export default ComboBox
+export default TaskStatusComboBox

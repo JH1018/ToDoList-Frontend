@@ -1,0 +1,30 @@
+.formContainer{
+    display: grid;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.headerForms{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.formBody{
+    display: grid;
+    font-size: 20px;
+    height: 100%;
+}
+
+.inputField{
+    height: 25px;
+    margin: 0.5rem 0 1rem;
+}
+
+.formActions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
