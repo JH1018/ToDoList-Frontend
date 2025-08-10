@@ -32,4 +32,4 @@ const ComboBox = ({ id, onChange, value}) => {
     )
 }
 
-export default ComboBox
+export default ComboBox 

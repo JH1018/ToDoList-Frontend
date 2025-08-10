@@ -23,7 +23,7 @@ const Home = () => {
     const error = selectedStatus ? errorFiltered : errorAll;
 
     const refreshTasks = () => {
-        refetchAll(); 
+        refetchAll();
         if (selectedStatus && refetchFiltered) {
             refetchFiltered();
         }

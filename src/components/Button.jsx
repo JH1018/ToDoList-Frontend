@@ -12,5 +12,5 @@ const Button = ({ children, onClick, disabled }) => {
         </button>
     );
 };
-
-export default Button
+ 
+export default Button;

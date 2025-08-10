@@ -29,7 +29,7 @@ const useGetTaskByStatus = (status) => {
             setLoading(false);
         }
     }, [status]);
-
+ 
     useEffect(() => {
         fetchTasks();
     }, [fetchTasks]);
