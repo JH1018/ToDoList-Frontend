@@ -1,0 +1,42 @@
+.mainContainer {
+    background-color: #646ff0;
+    min-height: 100vh;
+    padding: 4rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.componentsContainer {
+    background-color: #f8f9ff;
+    width: 100%;
+    min-height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #666987;
+}
+
+.optionsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

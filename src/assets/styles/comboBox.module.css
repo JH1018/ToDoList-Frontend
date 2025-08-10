@@ -1,0 +1,12 @@
+
+.combo{
+    background-color: #cccedf;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    width: 120px;
+}
